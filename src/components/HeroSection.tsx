@@ -50,8 +50,8 @@ function Hamburger({ open }: { open: boolean }) {
         display: 'flex',
         flexDirection: 'column',
         gap: '6.5px',
-        width: 40,
-        height: 40,
+        width: 44,
+        height: 44,
         alignItems: 'center',
         justifyContent: 'center',
       }}
@@ -94,6 +94,11 @@ function DrawerCloseBtn({ onClose, open }: { onClose: () => void; open: boolean 
         border: 'none',
         cursor: 'pointer',
         padding: 0,
+        width: 44,
+        height: 44,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
         opacity: open ? 1 : 0,
         transform: open ? 'rotate(0deg)' : 'rotate(90deg)',
         transition: `opacity 200ms ease ${open ? '300ms' : '0ms'},
@@ -371,7 +376,7 @@ export function HeroSection() {
             zIndex: 10,
             display: 'flex',
             alignItems: 'flex-end',
-            justifyContent: 'space-between',
+            justifyContent: 'flex-end',
             padding: '0 24px 20px',
             fontFamily: HN,
             fontSize: 12,
@@ -379,11 +384,6 @@ export function HeroSection() {
             color: CREAM,
           }}
         >
-          <div className="anim-fade-up" style={{ animationDelay: '1400ms' }}>
-            <p>Visuals Composer</p>
-            <p>Digital Crafter</p>
-            <p>Obsessed by The Office</p>
-          </div>
           <div
             className="anim-fade-up"
             style={{ animationDelay: '1550ms', textAlign: 'right' }}
@@ -452,17 +452,12 @@ export function HeroSection() {
             className="dt-nav hidden sm:flex"
             style={{
               alignItems: 'flex-start',
-              gap: 48,
+              gap: 32,
               fontFamily: HN,
               fontSize: 13,
               color: CREAM,
             }}
           >
-            {/* Year */}
-            <span className="anim-fade-up" style={{ animationDelay: '900ms' }}>
-              2025
-            </span>
-
             {/* Nav Link */}
             <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
               {NAV_ITEMS.map((item, i) => (

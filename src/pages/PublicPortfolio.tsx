@@ -105,7 +105,7 @@ export function PublicPortfolio() {
       />
 
       {/* Minimal Footer */}
-      <footer className="w-full py-8 px-6 bg-white border-t border-black/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-black/60 font-mono max-w-7xl mx-auto pb-12">
+      <footer className="w-full py-8 px-6 bg-white border-t border-black/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-black/60 font-mono max-w-7xl mx-auto pb-28 sm:pb-12">
         <div>
           <span>{profile.college || 'MIC College of Technology'}</span> &bull; <span>{profile.name} &copy; 2026</span>
         </div>

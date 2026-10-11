@@ -304,7 +304,7 @@ export function PostsScrollShowcase({ posts }: PostsScrollShowcaseProps) {
       {/* Pinned 100vh stage */}
       <div
         ref={stageRef}
-        className="w-full h-screen overflow-hidden relative flex flex-col justify-between selection:bg-black selection:text-[#F1F2D9]"
+        className="w-full h-screen h-[100dvh] overflow-hidden relative flex flex-col justify-between selection:bg-black selection:text-[#F1F2D9]"
         style={{ backgroundColor: '#F1F2D9' }}
       >
         {/* Stage Content */}

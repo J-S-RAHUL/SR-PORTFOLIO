@@ -324,7 +324,7 @@ export function AdminLogin() {
 
       {/* Centered Pitch-Black Card (Larger, more spacious, ultra-premium noir glassmorphism) */}
       <div
-        className={`relative z-10 w-full max-w-[440px] sm:max-w-[480px] bg-gradient-to-b from-[#131316] via-[#0a0a0c] to-[#040405] text-white rounded-[34px] sm:rounded-[38px] px-7 sm:px-10 pt-8 sm:pt-10 pb-9 sm:pb-11 shadow-[0_35px_90px_-15px_rgba(0,0,0,0.65),0_15px_35px_-5px_rgba(0,0,0,0.35),inset_0_1px_1px_rgba(255,255,255,0.18)] border border-white/12 overflow-hidden flex flex-col items-center transition-transform duration-300 ${
+        className={`relative z-10 w-full max-w-[440px] sm:max-w-[480px] bg-gradient-to-b from-[#131316] via-[#0a0a0c] to-[#040405] text-white rounded-[34px] sm:rounded-[38px] px-5 min-[390px]:px-7 sm:px-10 pt-8 sm:pt-10 pb-9 sm:pb-11 shadow-[0_35px_90px_-15px_rgba(0,0,0,0.65),0_15px_35px_-5px_rgba(0,0,0,0.35),inset_0_1px_1px_rgba(255,255,255,0.18)] border border-white/12 overflow-hidden flex flex-col items-center transition-transform duration-300 ${
           isShaking ? 'animate-shake' : ''
         }`}
       >
@@ -418,7 +418,7 @@ export function AdminLogin() {
             )}
 
             {/* OTP 4 Rounded-Square Glassmorphic Input Boxes (for 3117) */}
-            <div className="flex items-center justify-center gap-3.5 sm:gap-4 mb-7 w-full">
+            <div className="flex items-center justify-center gap-2.5 min-[390px]:gap-3.5 sm:gap-4 mb-7 w-full">
               {otp.map((digit, idx) => {
                 const isActive = activeBoxIndex === idx
                 return (
@@ -438,7 +438,7 @@ export function AdminLogin() {
                     onChange={(e) => handleOtpChange(idx, e.target.value)}
                     onKeyDown={(e) => handleKeyDown(idx, e)}
                     onPaste={handlePaste}
-                    className={`w-[66px] sm:w-[74px] h-[74px] sm:h-[82px] text-2xl sm:text-3xl font-mono text-center rounded-[22px] transition-all duration-200 focus:outline-none backdrop-blur-xl ${
+                    className={`w-[58px] min-[390px]:w-[66px] sm:w-[74px] h-[68px] min-[390px]:h-[74px] sm:h-[82px] text-2xl sm:text-3xl font-mono text-center rounded-[20px] sm:rounded-[22px] transition-all duration-200 focus:outline-none backdrop-blur-xl ${
                       isActive
                         ? 'bg-white/[0.12] border-2 border-white ring-4 ring-white/20 shadow-[0_0_25px_rgba(255,255,255,0.35),inset_0_1px_2px_rgba(255,255,255,0.4)]'
                         : digit

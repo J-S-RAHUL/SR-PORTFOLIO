@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react'
+import React, { useState, useEffect, useRef, useCallback } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import {
@@ -6,7 +6,6 @@ import {
   ChevronRight,
   ArrowUpRight,
   FolderGit2,
-  Sparkles,
 } from 'lucide-react'
 import type { ProjectItem } from '../types'
 
@@ -226,6 +225,32 @@ export function AnimatedProjectViewer({ projects }: AnimatedProjectViewerProps) 
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [count, activeIndex, scrollToIndex])
+
+  // Touch swipe gesture support for mobile carousel navigation
+  const touchStartX = useRef<number | null>(null)
+  const touchStartY = useRef<number | null>(null)
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX
+    touchStartY.current = e.touches[0].clientY
+  }
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null || touchStartY.current === null || count <= 1) return
+    const dx = e.changedTouches[0].clientX - touchStartX.current
+    const dy = e.changedTouches[0].clientY - touchStartY.current
+    touchStartX.current = null
+    touchStartY.current = null
+
+    // If horizontal swipe is prominent (> 40px)
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+      if (dx < 0) {
+        scrollToIndex(activeIndex === count - 1 ? 0 : activeIndex + 1)
+      } else {
+        scrollToIndex(activeIndex === 0 ? count - 1 : activeIndex - 1)
+      }
+    }
+  }
 
   // Base tilt settings
   const baseTilt = isMobile ? -10 : -16
@@ -503,7 +528,7 @@ export function AnimatedProjectViewer({ projects }: AnimatedProjectViewerProps) 
       {/* Pinned 100vh Stage */}
       <div
         ref={stageRef}
-        className="w-full h-screen overflow-hidden relative flex flex-col items-center justify-center p-4 sm:p-6"
+        className="w-full h-screen h-[100dvh] overflow-hidden relative flex flex-col items-center justify-center p-4 sm:p-6"
       >
         {/* Soft Warm Ambient Gradient Behind Viewport Panel (Cross-fading) */}
         <div
@@ -522,7 +547,11 @@ export function AnimatedProjectViewer({ projects }: AnimatedProjectViewerProps) 
         />
 
         {/* Large Rounded Black Viewport Panel (~90vw mobile, ~900x560 desktop) */}
-        <div className="relative z-10 w-[92vw] sm:w-[900px] h-[520px] sm:h-[560px] bg-[#0c0c0e] rounded-[18px] sm:rounded-[22px] overflow-hidden border border-white/10 shadow-[0_30px_90px_rgba(0,0,0,0.9)] flex items-center justify-center">
+        <div
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          className="relative z-10 w-[92vw] sm:w-[900px] h-[520px] sm:h-[560px] bg-[#0c0c0e] rounded-[18px] sm:rounded-[22px] overflow-hidden border border-white/10 shadow-[0_30px_90px_rgba(0,0,0,0.9)] flex items-center justify-center"
+        >
           {/* Subtle noise / specular texture glow */}
           <div className="absolute inset-0 bg-gradient-to-b from-white/[0.03] via-transparent to-black/60 pointer-events-none" />
 
@@ -604,7 +633,7 @@ export function AnimatedProjectViewer({ projects }: AnimatedProjectViewerProps) 
             <button
               onClick={() => scrollToIndex(activeIndex === 0 ? count - 1 : activeIndex - 1)}
               aria-label="Previous project"
-              className="w-9 h-9 rounded-full bg-white/5 hover:bg-white/15 border border-white/10 text-white/50 hover:text-white flex items-center justify-center transition-all cursor-pointer"
+              className="w-11 h-11 rounded-full bg-white/5 hover:bg-white/15 border border-white/10 text-white/50 hover:text-white flex items-center justify-center transition-all cursor-pointer"
             >
               <ChevronLeft size={18} />
             </button>
@@ -613,7 +642,7 @@ export function AnimatedProjectViewer({ projects }: AnimatedProjectViewerProps) 
             <button
               onClick={() => scrollToIndex(activeIndex === count - 1 ? 0 : activeIndex + 1)}
               aria-label="Next project"
-              className="w-10 h-10 rounded-xl bg-white/15 hover:bg-white/25 border border-white/30 text-white flex items-center justify-center transition-all cursor-pointer shadow-lg"
+              className="w-11 h-11 rounded-xl bg-white/15 hover:bg-white/25 border border-white/30 text-white flex items-center justify-center transition-all cursor-pointer shadow-lg"
             >
               <ChevronRight size={20} />
             </button>

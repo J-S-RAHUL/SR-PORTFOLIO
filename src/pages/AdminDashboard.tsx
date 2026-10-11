@@ -17,7 +17,6 @@ import {
   X,
   Sparkles,
   Loader2,
-  Check,
 } from 'lucide-react'
 
 type TabType = 'posts' | 'projects'

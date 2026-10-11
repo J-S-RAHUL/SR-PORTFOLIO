@@ -39,7 +39,7 @@ export function SideNav({ activeTab, onSelectTab, isVisible }: SideNavProps) {
               <button
                 onClick={() => onSelectTab(key)}
                 aria-label={label}
-                className={`relative flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full transition-all duration-300 cursor-pointer ${
+                className={`relative flex items-center justify-center w-11 h-11 rounded-full transition-all duration-300 cursor-pointer ${
                   isActive
                     ? 'bg-[#1E1F2B] text-white shadow-md scale-105'
                     : 'text-black/65 hover:text-black hover:bg-black/5'

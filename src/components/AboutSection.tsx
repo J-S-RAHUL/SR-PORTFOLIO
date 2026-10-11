@@ -137,7 +137,8 @@ export function AboutSection({ profile }: AboutSectionProps) {
       id="about"
       className="relative w-full"
       style={{
-        height: '100vh',
+        height: '100dvh',
+        minHeight: '100vh',
         overflow: 'hidden',
         fontFamily: '"Helvetica Neue ME", Helvetica, Arial, sans-serif',
       }}
