@@ -34,7 +34,20 @@
 
 <body>
   <div id="root"></div>
-  <script type="module" src="/src/main.tsx"></script>
+  <script type="module">
+    if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
+      const base = location.pathname.endsWith('/') ? location.pathname : location.pathname + '/';
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.crossOrigin = '';
+      link.href = `${base}assets/index-CQzpsRqi.css`;
+      document.head.appendChild(link);
+
+      import(`${base}assets/index-DgxvS_oA.js`);
+    } else {
+      import('/src/main.tsx');
+    }
+  </script>
 </body>
 
 </html>
