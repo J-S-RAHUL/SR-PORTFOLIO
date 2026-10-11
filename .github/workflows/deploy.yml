@@ -41,6 +41,9 @@ jobs:
       - name: Copy index.html to 404.html for client-side routing
         run: cp dist/index.html dist/404.html
 
+      - name: Add .nojekyll
+        run: touch dist/.nojekyll
+
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v4
 
