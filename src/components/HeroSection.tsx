@@ -8,7 +8,7 @@ const HERO_BG_STYLE: React.CSSProperties = {
   background: 'linear-gradient(160deg, #c8cacf 0%, #b8bcc4 30%, #a8acb8 55%, #bec0c8 80%, #caccce 100%)',
 }
 
-const PORTRAIT_URL = '/user_portrait.png'
+const PORTRAIT_URL = `${import.meta.env.BASE_URL}user_portrait.png`
 
 const NAV_ITEMS = [
   { label: 'About', href: '#about' },

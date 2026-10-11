@@ -172,7 +172,7 @@ export function AboutSection({ profile }: AboutSectionProps) {
                 if (img.src !== '/assets/about-me.jpg') {
                   img.src = '/assets/about-me.jpg'
                 } else {
-                  img.src = '/user_portrait.png'
+                  img.src = `${import.meta.env.BASE_URL}user_portrait.png`
                 }
               }}
               className="w-full h-full object-cover"
