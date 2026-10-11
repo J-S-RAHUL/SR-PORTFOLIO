@@ -1,0 +1,237 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #efeee9;
+
+  --font-hn: "Helvetica Neue ME", Helvetica, Arial, sans-serif;
+  --font-sans: "Helvetica Neue ME", Helvetica, Arial, sans-serif;
+  --font-serif: "Helvetica Neue ME", Helvetica, Arial, sans-serif;
+}
+
+/* ── Keyframe animations ── */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(4vh) scale(1.03);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes anim-line {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes tab-fade-slide {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tab-transition {
+  animation: tab-fade-slide 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ── Animation utility classes ── */
+
+.anim-fade-in {
+  animation: fade-in 1.2s ease-out both;
+}
+
+.anim-rise-in {
+  animation: rise-in 1.4s cubic-bezier(0.22, 1, 0.36, 1) 300ms both;
+}
+
+.anim-fade-up {
+  animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.anim-line {
+  animation: anim-line 1.1s cubic-bezier(0.76, 0, 0.24, 1) 1200ms both;
+  transform-origin: left;
+}
+
+.marquee-track {
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  15%, 45%, 75% {
+    transform: translateX(-7px);
+  }
+  30%, 60%, 90% {
+    transform: translateX(7px);
+  }
+}
+
+.animate-shake {
+  animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+/* ── Reduced motion ── */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .anim-fade-in,
+  .anim-rise-in,
+  .anim-fade-up,
+  .anim-line {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+  }
+
+  .marquee-track {
+    animation-play-state: paused;
+  }
+}
+
+/* ── Base ── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: "Helvetica Neue ME", Helvetica, Arial, sans-serif;
+  background: #ffffff;
+  color: #111111;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* ── Admin Dashboard Light Theme ── */
+.admin-light {
+  background-color: #f8f9fa !important;
+  color: #111111 !important;
+}
+
+.admin-light header {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.admin-light aside {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+.admin-light main {
+  background-color: #f8f9fa !important;
+}
+
+.admin-light .bg-\[\#161616\],
+.admin-light .bg-\[\#141414\],
+.admin-light .bg-\[\#111111\] {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.admin-light .text-cream {
+  color: #111111 !important;
+}
+
+.admin-light .text-cream\/80,
+.admin-light .text-cream\/70 {
+  color: rgba(0, 0, 0, 0.75) !important;
+}
+
+.admin-light .text-cream\/60,
+.admin-light .text-cream\/50,
+.admin-light .text-cream\/40 {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.admin-light .border-cream\/10,
+.admin-light .border-cream\/15,
+.admin-light .border-cream\/20,
+.admin-light .border-cream\/30,
+.admin-light .border-cream\/40 {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+.admin-light .bg-cream {
+  background-color: #111111 !important;
+  color: #ffffff !important;
+}
+
+.admin-light .hover\:bg-cream\/5:hover {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+
+.admin-light input,
+.admin-light textarea,
+.admin-light select {
+  background-color: #ffffff !important;
+  color: #111111 !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+.admin-light input::placeholder,
+.admin-light textarea::placeholder {
+  color: rgba(0, 0, 0, 0.35) !important;
+}
