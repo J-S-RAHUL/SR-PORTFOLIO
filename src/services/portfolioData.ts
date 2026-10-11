@@ -1021,43 +1021,6 @@ export const portfolioService = {
     setStored('messages', [])
   },
 
-  compressAndUploadImage: async (file: File): Promise<string> => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader()
-      reader.onload = (e) => {
-        const img = new Image()
-        img.onload = () => {
-          const maxDim = 1600
-          let { width, height } = img
-          if (width > maxDim || height > maxDim) {
-            if (width > height) {
-              height = Math.round((height * maxDim) / width)
-              width = maxDim
-            } else {
-              width = Math.round((width * maxDim) / height)
-              height = maxDim
-            }
-          }
-          const canvas = document.createElement('canvas')
-          canvas.width = width
-          canvas.height = height
-          const ctx = canvas.getContext('2d')
-          if (!ctx) {
-            resolve(e.target?.result as string)
-            return
-          }
-          ctx.drawImage(img, 0, 0, width, height)
-          const dataUrl = canvas.toDataURL('image/webp', 0.85)
-          resolve(dataUrl)
-        }
-        img.onerror = () => resolve(e.target?.result as string)
-        img.src = e.target?.result as string
-      }
-      reader.onerror = (err) => reject(err)
-      reader.readAsDataURL(file)
-    })
-  },
-
   compressAndUploadWithProgress: async (
     file: File,
     onProgress?: (loaded: number, total: number) => void,

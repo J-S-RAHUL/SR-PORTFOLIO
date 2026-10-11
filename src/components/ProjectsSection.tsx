@@ -75,7 +75,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                 {/* Bottom Stack & Links */}
                 <div>
                   <div className="flex flex-wrap gap-2 mb-6">
-                    {p.technologies.map((t) => (
+                    {(p.technologies || p.techTags || []).map((t) => (
                       <span
                         key={t}
                         className="text-[11px] px-2.5 py-1 bg-[#f4f4f4] border border-black/10 text-black/65"
