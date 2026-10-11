@@ -159,7 +159,7 @@ export function AboutSection({ profile }: AboutSectionProps) {
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-10 lg:px-16 py-6 md:py-8 h-full flex flex-col md:flex-row items-center justify-center gap-5 sm:gap-8 lg:gap-16">
           {/* Left: Portrait Frame (~28vw wide on desktop, object-position: top center) */}
           <div
-            className="w-28 h-36 sm:w-44 sm:h-56 md:w-[28vw] md:max-w-[420px] md:min-w-[260px] md:h-[68vh] rounded-2xl md:rounded-3xl overflow-hidden border border-black/10 shadow-2xl flex-shrink-0 bg-black/5"
+            className="w-36 h-48 xs:w-40 xs:h-52 sm:w-48 sm:h-64 md:w-[28vw] md:max-w-[420px] md:min-w-[260px] md:h-[68vh] rounded-2xl md:rounded-3xl overflow-hidden border border-black/10 shadow-2xl flex-shrink-0 bg-black/5"
             style={{
               boxShadow: '0 25px 60px -15px rgba(0, 0, 0, 0.15)',
             }}
@@ -235,7 +235,7 @@ export function AboutSection({ profile }: AboutSectionProps) {
           {/* Left: College Image Frame (~28vw wide on desktop, object-fit: cover) */}
           <div
             ref={sec2ImgWrapRef}
-            className="w-full max-w-[240px] sm:max-w-[320px] md:w-[28vw] md:max-w-[420px] md:min-w-[260px] h-20 sm:h-36 md:h-[68vh] rounded-2xl md:rounded-3xl overflow-hidden border border-black/10 shadow-2xl flex-shrink-0 bg-black/5"
+            className="w-full max-w-[280px] xs:max-w-[320px] sm:max-w-[360px] md:w-[28vw] md:max-w-[420px] md:min-w-[260px] h-28 xs:h-36 sm:h-44 md:h-[68vh] rounded-2xl md:rounded-3xl overflow-hidden border border-black/10 shadow-2xl flex-shrink-0 bg-black/5"
             style={{
               boxShadow: '0 25px 60px -15px rgba(0, 0, 0, 0.12)',
             }}
