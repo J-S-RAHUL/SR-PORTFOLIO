@@ -202,7 +202,7 @@ function MobileDrawer({ open, onClose }: { open: boolean; onClose: () => void })
           ))}
           <div style={staggerStyle(open, '700ms', '20px')}>
             <a
-              href="/admin/login"
+              href={`${import.meta.env.BASE_URL}admin/login`}
               style={{
                 fontFamily: HN,
                 fontSize: 14,
@@ -480,7 +480,7 @@ export function HeroSection() {
 
             {/* Admin Link */}
             <a
-              href="/admin/login"
+              href={`${import.meta.env.BASE_URL}admin/login`}
               className="anim-fade-up dt-nav-link"
               style={{
                 animationDelay: '1300ms',

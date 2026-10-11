@@ -111,7 +111,7 @@ export function PublicPortfolio() {
         </div>
         <div className="flex items-center gap-6">
           <a href="#about" className="hover:text-black transition-colors">About</a>
-          <a href="/admin/login" className="hover:text-black transition-colors">Admin</a>
+          <a href={`${import.meta.env.BASE_URL}admin/login`} className="hover:text-black transition-colors">Admin</a>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="hover:text-black transition-colors cursor-pointer"

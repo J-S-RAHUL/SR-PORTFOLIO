@@ -391,7 +391,7 @@ export function AdminLogin() {
             {/* Back to site in glassmorphism pill */}
             <div className="mt-7 pt-4 border-t border-white/10 w-full flex justify-center">
               <a
-                href="/"
+                href={import.meta.env.BASE_URL}
                 className="px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/15 border border-white/15 hover:border-white/30 backdrop-blur-md text-xs text-zinc-300 hover:text-white transition-all flex items-center gap-1.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]"
               >
                 <ArrowLeft size={14} />
